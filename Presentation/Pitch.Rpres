@@ -1,0 +1,39 @@
+Data Products Assigments - Shiny app pitch
+========================================================
+author: Federico Roman  
+date: 23/10/2015
+
+Summary
+========================================================
+
+Is an automatic or manual transmission better for MPG? It is a common belief that changing gears manually results in better fuel management. We will test this hypotesis by using a dataset extracted from the 1974 Motor Trend US magazine.
+
+The Shiny app will allow your quickly create a simple regression model using all the variables in the dataset.
+
+Data-set 
+========================================================
+This Shiny app will create a Simple Regression Model using any of the columns in 'mtcars' dataset. Here are the columns you can use:
+```{r}
+data(mtcars)
+names(mtcars)
+```
+
+The regression model
+========================================================
+When you select  *X* and *Y* variables the app will use this two variables to fit a simple regression model.
+
+```{r}
+fit <- lm(mpg~am, data = mtcars)
+summary(fit)
+```
+
+The Shiny app output 
+========================================================
+The application will produce a set of four plots: residuals versus fitted values, a Q-Q plot of standardized residuals, a scale-location plot (square roots of standardized residuals versus fitted values, and a plot of residuals versus leverage that adds bands corresponding to Cook's distances of 0.5 and 1.
+
+```{r, echo=FALSE}
+par(mfrow=c(2,2))
+plot(fit)
+```
+
+With this information you will speed up your analysis by spotting out what variables have a strong correlation.
